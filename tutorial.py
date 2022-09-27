@@ -11,7 +11,7 @@ body_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fullbo
 detection = False
 # record only when face is detected
 detection_stopped_time = None
-time_started = False
+timer_started = False
 SECONDS_TO_RECORD_AFTER_DETECTION = 5
 
 # need the frame size to be record
@@ -28,7 +28,7 @@ while True:
     bodies = face_cascade.detectMultiScale(gray, 1.3, 5)
 
     # record if there are faces or bodies
-    if (len(faces) + len(bodies) > 0):
+    if len(faces) + len(bodies) > 0:
         if detection:
             timer_started = False
         else:
